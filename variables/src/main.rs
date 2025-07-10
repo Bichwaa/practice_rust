@@ -1,7 +1,7 @@
 mod project;
 mod notes;
 
-use crate::project::Project;
+//use crate::project;
 
 fn main() {
     let prj = create_test_project();
@@ -15,10 +15,12 @@ fn string(s: &str)->String{
     String::from(s)
 }
 
-fn create_test_project()-> Project {
-    let mut pr = crate::project::Project::new(1, string("testy"), string("destriptive"));
-    let mut obj = crate::project::Objective::new(0, string("objective 1"), string("also desctriptive"));
-    let goal = crate::project::Goal::new(0, string("new goal"), string("is to?"));
+fn create_test_project()-> project::Project {
+    let mut pr = project::Project::new(1, string("testy"), string("destriptive"));
+    let mut obj = project::Objective::new(0, string("objective 1"), string("also desctriptive"));
+    let mut goal = project::Goal::new(0, string("new goal"), string("is to?"));
+    let task = project::Task::new(0, string("a task"), string("another task fr"));
+    goal.tasks.push(task);
     obj.goals.push(goal);
     pr.objectives.push(obj);
     pr

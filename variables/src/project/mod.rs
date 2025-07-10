@@ -1,9 +1,11 @@
+use crate::notes::{Note};
+
 #[derive(Debug)]
 pub struct Task {
     id: usize,
     name: String,
     description: String,
-    notes: Vec<crate::notes::Note>
+    pub notes: Vec<Note>
 }
 
 impl  Task {
@@ -22,7 +24,8 @@ pub struct Goal {
     id: usize,
     name: String,
     description: String,
-    tasks: Vec<String>
+    pub tasks: Vec<Task>,
+    pub notes: Vec<Note>
 }
 
 impl Goal {
@@ -31,7 +34,8 @@ impl Goal {
     id,
     name,
     description,
-    tasks: Vec::new()
+    tasks: Vec::new(),
+    notes: Vec::new()
 }
 }
 }
@@ -41,7 +45,8 @@ pub struct Objective {
     id: usize,
     name: String,
     description: String,
-    pub goals:Vec<Goal>
+    pub goals:Vec<Goal>,
+    pub notes: Vec<Note>
 }
 
 impl Objective {
@@ -50,7 +55,8 @@ impl Objective {
             id,
             name,
             description,
-            goals: Vec::new()
+            goals: Vec::new(),
+            notes:Vec::new()
         }
     }
 }
@@ -60,7 +66,8 @@ pub struct Project {
     id: usize,
     name: String,
     description: String,
-    pub objectives: Vec<Objective>
+    pub objectives: Vec<Objective>,
+    pub notes: Vec<Note>
 }
 
 impl Project {
@@ -69,7 +76,8 @@ impl Project {
             id,
             name,
             description,
-            objectives: Vec::new()
+            objectives: Vec::new(),
+            notes: Vec::new()
         }
     }
 }
