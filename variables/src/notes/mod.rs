@@ -1,8 +1,8 @@
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Note {
     id: usize,
-    title: String,
-    body: String
+    pub title: String,
+    pub body: String
 }
 
 
